@@ -1,136 +1,150 @@
 <!doctype html>
-<html>
-	<head>
-		<meta charset="UTF-8" />
-		<!--<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no;" />-->
-		<meta name="apple-mobile-web-app-capable" content="yes" />
-	<title>Clock with Tics</title>  
-	<!--<script src="extensions/jqt.autotitles.js" type="application/x-javascript" charset="utf-8"></script>-->
-	<!--<script type="text/javascript" charset="utf-8">
-			function onBodyLoad()
-				{		
-				document.addEventListener("deviceready",onDeviceReady,false);
-				}
-	</script>--> 
-			 
-			<style type="text/css" media="screen">@import "themes/jqt/theme.css";</style> 
-	</head>
-	<!--<body onload="onBodyLoad()">-->
-	<body>
-	<div id="jqt">
-		<div id="home">
-			<div class="toolbar">
-				<!-- <a href="#info" class="button">Info</a> --><h1>Clock with Tics</h1> 
-			</div>
-		<div class="plastic" style="text-align:center">
-			<img style="margin-top:50px; margin-left:3px" src="digitblank.png" alt="" name="hourstens"> 
-			<img style="margin-left:0px" src="digitblank.png" border="0" alt="" name="hoursones" style="margin-right:-1px"> 
-			<img src="digitblank.png" border="0" alt="" name="colon" style="margin-right:0px"> 
-			<img src="digitblank.png" border="0" alt="" name="minstens" style="margin-right:0px"> 
-			<img src="digitblank.png" border="0" alt="" name="minsones" style="margin-right:-3px"> 
-			<img src="digitblank.png" border="0" alt="" name="ampm" style="margin-right:-3px; "> 
-			
-	<script language="JavaScript" type="text/javascript">
-	
-	  if (document.images) { 
-	    digit1 = new Image; 
-	    digit1.src = "digit1.png"; 
-		digit2 = new Image; 
-	    digit2.src = "digit2.png";
-		digit3 = new Image; 
-	    digit3.src = "digit3.png";
-		digit4 = new Image; 
-	    digit4.src = "digit4.png";
-		digit5 = new Image; 
-	    digit5.src = "digit5.png";
-		digit6 = new Image; 
-	    digit6.src = "digit6.png";
-		digit7 = new Image; 
-	    digit7.src = "digit7.png";
-		digit8 = new Image; 
-	    digit8.src = "digit8.png";
-		digit9 = new Image; 
-	    digit9.src = "digit9.png";
-		digit0 = new Image; 
-	    digit0.src = "digit0.png";
-		digitam = new Image; 
-	    digitam.src = "digitam.png";
-		digitpm = new Image; 
-	    digitpm.src = "digitpm.png";
-		digitcolon = new Image;
-		digitcolon.src = "digitcolon.gif";
-		digitblank = new Image;
-		digitblank.src = "digitblank.png";
-		digits = new Image; 
-	    digits.src = "digits.png";
-	    digith = new Image; 
-	    digith.src = "digith.png";
-	    digiti = new Image; 
-	    digiti.src = "digiti.png";
-	    digitt = new Image; 
-	    digitt.src = "digitt.png";
-	    digitf = new Image; 
-	    digitf.src = "digitf.png";
-	    digitu = new Image; 
-	    digitu.src = "digitu.png";
-	    digitc = new Image; 
-	    digitc.src = "digitc.png";
-	    digitk = new Image; 
-	    digitk.src = "digitk.png";
-		}
-		
-	
-	function UpdateClock(){
-		var randomnumber = Math.floor(Math.random()*8);	
-		if (randomnumber == 7) 
+<html manifest="cache.manifest">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no;" />
+<title>Clock with Tics</title> 
+<script type="text/javascript" charset="utf-8" src="phonegap.0.9.6.min.js"></script> 
+<script src="extensions/jqt.autotitles.js" type="application/x-javascript" charset="utf-8"></script>
+<script type="text/javascript" charset="utf-8">
+		function onBodyLoad()
 			{		
-				document.images.minsones.src=eval("digitt.src");
-				document.images.minstens.src=eval("digiti.src");
-				document.images.hoursones.src=eval("digith.src");
-				document.images.hourstens.src=eval("digits.src");
-				document.images.colon.src=digitcolon.src;
-				setTimeout("UpdateClock()",100);
-			}	
-		else if (randomnumber == 6)
-			{		
-				document.images.minsones.src=eval("digitk.src");
-				document.images.minstens.src=eval("digitc.src");
-				document.images.hoursones.src=eval("digitu.src");
-				document.images.hourstens.src=eval("digitf.src");
-				document.images.colon.src=digitcolon.src;
-				setTimeout("UpdateClock()",100);
+			document.addEventListener("deviceready",onDeviceReady,false);
 			}
-		else 
-			{
-	    	var time = new Date();
-	   		hours = time.getHours();
-	    	mins = time.getMinutes();
-	    	if (!document.images) return;
-				digit = mins % 10;
-	    		document.images.minsones.src=eval("digit"+digit+".src");
-				digit = (mins - (mins % 10))/10;
-				document.images.minstens.src=eval("digit"+digit+".src");
-			if (hours > 0) 
-				{
-		  		document.images.ampm.src=digitpm.src;
-		  		}
-			else
-				{
-		  		document.images.ampm.src=digitam.src;
-		  		}
-			//if (hours > 12) hours = hours - 12;
-			digit = hours % 10;
-			document.images.hoursones.src=eval("digit"+digit+".src");
-			digit = (hours - (hours % 10))/10;
-			document.images.hourstens.src=eval("digit"+digit+".src");
+</script> 
+		<script src="jqtouch/jquery-1.4.2.min.js" type="text/javascript" charset="utf-8"></script> 
+		<script src="jqtouch/jqtouch.js" type="application/x-javascript" charset="utf-8"></script> 
+		<script type="text/javascript" charset="utf-8">
+            var jQT = new $.jQTouch({
+                /* icon: 'jqtouch.png',
+                addGlossToIcon: false,
+                startupScreen: 'jqt_startup.png', */
+                statusBar: 'black'
+            });
+
+            $(function(){
+                // Custom Javascript (onReady)
+            });
+        </script> 
+        
+		<style type="text/css" media="screen">@import "jqtouch/jqtouch.css";</style> 
+		<style type="text/css" media="screen">@import "themes/jqt/theme.css";</style> 
+</head>
+<body onload="onBodyLoad()">
+<div id="jqt">
+	<div id="home">
+		<div class="toolbar">
+			<!-- <a href="#info" class="button">Info</a> --><h1>Clock with Tics</h1> 
+		</div>
+	<div class="plastic" style="text-align:center">
+		<img style="margin-top:50px; margin-left:3px" src="digitblank.png" alt="" name="hourstens"> 
+		<img style="margin-left:0px" src="digitblank.png" border="0" alt="" name="hoursones" style="margin-right:-1px"> 
+		<img src="digitblank.png" border="0" alt="" name="colon" style="margin-right:0px"> 
+		<img src="digitblank.png" border="0" alt="" name="minstens" style="margin-right:0px"> 
+		<img src="digitblank.png" border="0" alt="" name="minsones" style="margin-right:-3px"> 
+		<img src="digitblank.png" border="0" alt="" name="ampm" style="margin-right:-3px; "> 
+		
+<script language="JavaScript" type="text/javascript">
+
+  if (document.images) { 
+    digit1 = new Image; 
+    digit1.src = "digit1.png"; 
+	digit2 = new Image; 
+    digit2.src = "digit2.png";
+	digit3 = new Image; 
+    digit3.src = "digit3.png";
+	digit4 = new Image; 
+    digit4.src = "digit4.png";
+	digit5 = new Image; 
+    digit5.src = "digit5.png";
+	digit6 = new Image; 
+    digit6.src = "digit6.png";
+	digit7 = new Image; 
+    digit7.src = "digit7.png";
+	digit8 = new Image; 
+    digit8.src = "digit8.png";
+	digit9 = new Image; 
+    digit9.src = "digit9.png";
+	digit0 = new Image; 
+    digit0.src = "digit0.png";
+	digitam = new Image; 
+    digitam.src = "digitam.png";
+	digitpm = new Image; 
+    digitpm.src = "digitpm.png";
+	digitcolon = new Image;
+	digitcolon.src = "digitcolon.gif";
+	digitblank = new Image;
+	digitblank.src = "digitblank.png";
+	digits = new Image; 
+    digits.src = "digits.png";
+    digith = new Image; 
+    digith.src = "digith.png";
+    digiti = new Image; 
+    digiti.src = "digiti.png";
+    digitt = new Image; 
+    digitt.src = "digitt.png";
+    digitf = new Image; 
+    digitf.src = "digitf.png";
+    digitu = new Image; 
+    digitu.src = "digitu.png";
+    digitc = new Image; 
+    digitc.src = "digitc.png";
+    digitk = new Image; 
+    digitk.src = "digitk.png";
+	}
+	
+
+function UpdateClock(){
+	var randomnumber = Math.floor(Math.random()*8);	
+	if (randomnumber == 7) 
+		{		
+			document.images.minsones.src=eval("digitt.src");
+			document.images.minstens.src=eval("digiti.src");
+			document.images.hoursones.src=eval("digith.src");
+			document.images.hourstens.src=eval("digits.src");
 			document.images.colon.src=digitcolon.src;
-			setTimeout("UpdateClock()",2000);
-			}
+			setTimeout("UpdateClock()",100);
+		}	
+	else if (randomnumber == 6)
+		{		
+			document.images.minsones.src=eval("digitk.src");
+			document.images.minstens.src=eval("digitc.src");
+			document.images.hoursones.src=eval("digitu.src");
+			document.images.hourstens.src=eval("digitf.src");
+			document.images.colon.src=digitcolon.src;
+			setTimeout("UpdateClock()",100);
 		}
-		
-		UpdateClock();
-		
-	</script> 
+	else 
+		{
+    	var time = new Date();
+   		hours = time.getHours();
+    	mins = time.getMinutes();
+    	if (!document.images) return;
+			digit = mins % 10;
+    		document.images.minsones.src=eval("digit"+digit+".src");
+			digit = (mins - (mins % 10))/10;
+			document.images.minstens.src=eval("digit"+digit+".src");
+		if (hours > 0) 
+			{
+	  		document.images.ampm.src=digitpm.src;
+	  		}
+		else
+			{
+	  		document.images.ampm.src=digitam.src;
+	  		}
+		//if (hours > 12) hours = hours - 12;
+		digit = hours % 10;
+		document.images.hoursones.src=eval("digit"+digit+".src");
+		digit = (hours - (hours % 10))/10;
+		document.images.hourstens.src=eval("digit"+digit+".src");
+		document.images.colon.src=digitcolon.src;
+		setTimeout("UpdateClock()",2000);
+		}
+	}
+	
+	UpdateClock();
+	
+</script> 
 	</div>
 		<div class="plastic">
 			<a href="#info"><img id="infoicon" src="infoIcon.png" alt=""></a>
@@ -143,9 +157,8 @@
 		</div>
 		<div id="title">Clock with Tics</div>
 			<p>by Michael B. LeBlanc, generaleccentric.net.</p>
-			<p>Version 1.0, July 2011.</p>
-			<p>Version 1.2, July 2014.</p>
-			<p>Clock code adapted from javasciptkit.com.</p>
+			<p>Version 1.0, July 2011, v. 1.2 July 2014.</p>
+			<p>Clock code adapted from javascriptkit.com.</p>
 		<div class="whiteButton" style="margin-top: 15px">
 			<a href="#about">About this App</a>
 		</div>
