@@ -1,0 +1,178 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no;" />
+	<title>Clock with Tics</title>  
+	<script src="extensions/jqt.autotitles.js" type="application/x-javascript" charset="utf-8"></script>
+	<script type="text/javascript" charset="utf-8">
+			function onBodyLoad()
+				{		
+				document.addEventListener("deviceready",onDeviceReady,false);
+				}
+	</script> 
+			 
+			<style type="text/css" media="screen">@import "themes/jqt/theme.css";</style> 
+	</head>
+	<body onload="onBodyLoad()">
+	<div id="jqt">
+		<div id="home">
+			<div class="toolbar">
+				<!-- <a href="#info" class="button">Info</a> --><h1>Clock with Tics</h1> 
+			</div>
+		<div class="plastic" style="text-align:center">
+			<img style="margin-top:50px; margin-left:3px" src="digitblank.png" alt="" name="hourstens"> 
+			<img style="margin-left:0px" src="digitblank.png" border="0" alt="" name="hoursones" style="margin-right:-1px"> 
+			<img src="digitblank.png" border="0" alt="" name="colon" style="margin-right:0px"> 
+			<img src="digitblank.png" border="0" alt="" name="minstens" style="margin-right:0px"> 
+			<img src="digitblank.png" border="0" alt="" name="minsones" style="margin-right:-3px"> 
+			<img src="digitblank.png" border="0" alt="" name="ampm" style="margin-right:-3px; "> 
+			
+	<script language="JavaScript" type="text/javascript">
+	
+	  if (document.images) { 
+	    digit1 = new Image; 
+	    digit1.src = "digit1.png"; 
+		digit2 = new Image; 
+	    digit2.src = "digit2.png";
+		digit3 = new Image; 
+	    digit3.src = "digit3.png";
+		digit4 = new Image; 
+	    digit4.src = "digit4.png";
+		digit5 = new Image; 
+	    digit5.src = "digit5.png";
+		digit6 = new Image; 
+	    digit6.src = "digit6.png";
+		digit7 = new Image; 
+	    digit7.src = "digit7.png";
+		digit8 = new Image; 
+	    digit8.src = "digit8.png";
+		digit9 = new Image; 
+	    digit9.src = "digit9.png";
+		digit0 = new Image; 
+	    digit0.src = "digit0.png";
+		digitam = new Image; 
+	    digitam.src = "digitam.png";
+		digitpm = new Image; 
+	    digitpm.src = "digitpm.png";
+		digitcolon = new Image;
+		digitcolon.src = "digitcolon.gif";
+		digitblank = new Image;
+		digitblank.src = "digitblank.png";
+		digits = new Image; 
+	    digits.src = "digits.png";
+	    digith = new Image; 
+	    digith.src = "digith.png";
+	    digiti = new Image; 
+	    digiti.src = "digiti.png";
+	    digitt = new Image; 
+	    digitt.src = "digitt.png";
+	    digitf = new Image; 
+	    digitf.src = "digitf.png";
+	    digitu = new Image; 
+	    digitu.src = "digitu.png";
+	    digitc = new Image; 
+	    digitc.src = "digitc.png";
+	    digitk = new Image; 
+	    digitk.src = "digitk.png";
+		}
+		
+	
+	function UpdateClock(){
+		var randomnumber = Math.floor(Math.random()*8);	
+		if (randomnumber == 7) 
+			{		
+				document.images.minsones.src=eval("digitt.src");
+				document.images.minstens.src=eval("digiti.src");
+				document.images.hoursones.src=eval("digith.src");
+				document.images.hourstens.src=eval("digits.src");
+				document.images.colon.src=digitcolon.src;
+				setTimeout("UpdateClock()",100);
+			}	
+		else if (randomnumber == 6)
+			{		
+				document.images.minsones.src=eval("digitk.src");
+				document.images.minstens.src=eval("digitc.src");
+				document.images.hoursones.src=eval("digitu.src");
+				document.images.hourstens.src=eval("digitf.src");
+				document.images.colon.src=digitcolon.src;
+				setTimeout("UpdateClock()",100);
+			}
+		else 
+			{
+	    	var time = new Date();
+	   		hours = time.getHours();
+	    	mins = time.getMinutes();
+	    	if (!document.images) return;
+				digit = mins % 10;
+	    		document.images.minsones.src=eval("digit"+digit+".src");
+				digit = (mins - (mins % 10))/10;
+				document.images.minstens.src=eval("digit"+digit+".src");
+			if (hours > 0) 
+				{
+		  		document.images.ampm.src=digitpm.src;
+		  		}
+			else
+				{
+		  		document.images.ampm.src=digitam.src;
+		  		}
+			//if (hours > 12) hours = hours - 12;
+			digit = hours % 10;
+			document.images.hoursones.src=eval("digit"+digit+".src");
+			digit = (hours - (hours % 10))/10;
+			document.images.hourstens.src=eval("digit"+digit+".src");
+			document.images.colon.src=digitcolon.src;
+			setTimeout("UpdateClock()",2000);
+			}
+		}
+		
+		UpdateClock();
+		
+	</script> 
+	</div>
+		<div class="plastic">
+			<a href="#info"><img id="infoicon" src="infoIcon.png" alt=""></a>
+		</div>
+	</div>
+	
+	<div id="info">
+		<div class="toolbar">
+			<a href="#" class="back">back</a> <h1>Information</h1> 			
+		</div>
+		<div id="title">Clock with Tics</div>
+			<p>by Michael B. LeBlanc, generaleccentric.net.</p>
+			<p>Version 1.0, July 2011.</p>
+			<p>Version 1.2, July 2014.</p>
+			<p>Clock code adapted from javasciptkit.com.</p>
+		<div class="whiteButton" style="margin-top: 15px">
+			<a href="#about">About this App</a>
+		</div>
+		<div id="ge">General Eccentric</div>
+		<!-- 
+<div class="whiteButton" style="text-align:left; padding-top:14px; padding-bottom:14px;">
+			<a mailto="mleblanc@nscad.ca" target="_webapp"><img id="emailicon" src="emailIcon.png" alt="">Contact</a>
+		</div>
+ -->
+		<div class="whiteButton" style="text-align:left; padding-top:11px; padding-bottom:11px;">
+			<a href="http://twitter.com/nscadesign" target="_webapp" style="position: relative; bottom: 1px"><img id="twittericon" src="twitterIcon.png" alt="">Follow on Twitter</a>
+		</div>
+		<div class="whiteButton" style="text-align:left">
+			<a href="http://generaleccentric.net/" target="_webapp" style="position: relative; bottom: 3px"><img id="targeticon" src="targetIcon.png" alt="">Web Site</a>
+		</div>
+	</div>
+			
+	<div id="about">
+		<div class="toolbar">
+			<a href="#" class="back">back</a> <h1>About this App</h1> 
+		</div>
+		<div class="info">
+			<p><b>Clock with Tics</b> is an Arduino-powered 24-hour digital clock that displays expletives at random intervals.</p>
+			<p>A clock &lsquo;ticks&rsquo;. A &lsquo;tic&rsquo; (note the different spelling) can be a mental disorder and can manifest itself in a number of ways; most seriously, someone suffering from &ldquo;Tourette&rsquo;s Syndrome&rdquo; will blurt out swearwords involuntarily. I had thought of titling this piece &ldquo;Time for Tourettes&rdquo;, but the clock itself is tasteless enough.</p>
+			<p>This artifact is part of my series &ldquo;The Technology of Good Intentions&rdquo; which focuses on &lsquo;failure&rsquo; in design. In this case, who has not had an electrical widget that has &lsquo;gone on the fritz&rsquo; and suffers from momentary lapses?</p> 
+			<p><b>Michael LeBlanc</b> is an Associate Professor and Chair of the Design Division at NSCAD University.</p>
+		
+		</div>			
+	</div>
+</div>
+</body>
+</html>
